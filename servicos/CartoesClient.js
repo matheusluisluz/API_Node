@@ -5,8 +5,7 @@ var client = restifyClient.createJsonClient({
     version: "~1.0"
 });
 
-client.post("/cartoes/autoriza", {hello :"world"} , function (erro, request, response, retorno) {
+client.post("/cartoes/autoriza", function (erro, request, response, retorno) {
     console.log("Cosumindo Servico de Cartoes");
-    console.log(erro);
     console.log(retorno);
 });

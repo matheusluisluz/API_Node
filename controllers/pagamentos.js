@@ -1,3 +1,5 @@
+var logger = require("../servicos/logger.js");
+
 module.exports = function (app) {
 
     const PAGAMENTO_CRIADO = "CRIADO";
@@ -10,8 +12,11 @@ module.exports = function (app) {
     });
 
     app.get("/pagamentos/pagamento/:id", function (request,response) {
+
         var id = request.params.id;
+
         console.log("Consultando Pagamento " + id);
+        logger.info("Consultando Pagamento " + id);
 
         var connection = app.persistencia.connectionFactory();
         var pagamentoDAO = new app.persistencia.PagamentoDAO(connection);

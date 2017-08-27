@@ -1,0 +1,3 @@
+{"level":"info","message":"::1 - - [27/Aug/2017:18:17:02 +0000] \"POST /pagamentos/pagamento HTTP/1.1\" 201 370\n","timestamp":"2017-08-27T18:17:02.312Z"}
+{"level":"info","message":"Consultando Pagamento 19","timestamp":"2017-08-27T18:17:22.461Z"}
+{"level":"info","message":"::1 - - [27/Aug/2017:18:17:22 +0000] \"GET /pagamentos/pagamento/19 HTTP/1.1\" 200 157\n","timestamp":"2017-08-27T18:17:22.473Z"}
