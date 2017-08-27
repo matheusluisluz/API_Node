@@ -9,6 +9,26 @@ module.exports = function (app) {
         response.send("OK");
     });
 
+    app.get("/pagamentos/pagamento/:id", function (request,response) {
+        var id = request.params.id;
+        console.log("Consultando Pagamento " + id);
+
+        var connection = app.persistencia.connectionFactory();
+        var pagamentoDAO = new app.persistencia.PagamentoDAO(connection);
+
+        pagamentoDAO.buscaPorId(id, function (erro, results) {
+            if(erro){
+                console.log("Erro ao Consultar no Banco: " + erro);
+                response.status(500).send(erro);
+                return;
+            }
+            console.log("Pagamento Encontrado: " + JSON.stringify(results));
+            response.json(results);
+            return;
+        });
+
+    });
+
     app.delete("/pagamentos/pagamento/:id",function (request, response) {
         var pagamento = {};
         var id = request.params.id;
